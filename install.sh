@@ -12,3 +12,6 @@ cd ./movie-quote-service/
 ./mvnw clean package
 cd ..
 
+
+docker push subhakarkotta/movie-quote-service:0.0.3
+docker push subhakarkotta/movie-quote-consumer:0.0.3

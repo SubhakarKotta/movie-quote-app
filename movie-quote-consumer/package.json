@@ -1,8 +1,8 @@
 {
   "name": "movie-quote-consumer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
-    "name": "g00glen00b"
+    "name": "subhakarkotta"
   },
   "private": true,
   "scripts": {

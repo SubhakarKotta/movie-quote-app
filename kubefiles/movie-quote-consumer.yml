@@ -12,14 +12,12 @@ metadata:
 spec:
   ports:
     - name: http
-      nodePort: 30800
       port: 80
       targetPort: 80
     - name: prometheus
-      nodePort: 30113
       port: 9113
       targetPort: 9113
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: movie-quote-app
     tier: frontend
@@ -28,10 +26,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: movie-quote-consumer-deployment
-  labels:
-    service: movie-quote-consumer
-    app: movie-quote-app
-    tier: frontend
 spec:
   selector:
     matchLabels:
@@ -47,7 +41,7 @@ spec:
     spec:
       containers:
         - name: movie-quote-consumer
-          image: g00glen00b/movie-quote-consumer:0.0.2
+          image: subhakarkotta/movie-quote-consumer:0.0.3
           ports:
             - containerPort: 80
               name: nginx-port
@@ -105,5 +99,3 @@ spec:
         - name: nginx-config
           configMap:
             name: nginx-config
-
-
